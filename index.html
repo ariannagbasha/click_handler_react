@@ -4,10 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Sports Lab</title>
+    <title>Click Handler React</title>
+    <style>
+      #color_box {
+        width: 200px;
+        height: 200px;
+      }
+      .gray {
+        background: gray;
+      }
+      .blue {
+        background: rgb(67, 111, 255);
+      }
+      .pink {
+        background: pink;
+      }
+    </style>
   </head>
   <body>
-    <h1>Sports Lab</h1>
     <div id="root"></div>
     <!-- include React and ReactDOM -->
     <script
@@ -22,7 +36,8 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <!-- include our JS for the React Appliccation -->
     <script type="text/babel">
-      class Click_Handler extends React.Component {
+    //0. Dicuss naming conventations
+      class ColorChanger extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
@@ -32,23 +47,56 @@
         render() {
           return (
             <div>
-        
+            
             </div>
-          );
+            );
         }
       }
+      class Counter extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
 
+          };
+        }
+        render() {
+          return (
+            <div>
+            
+            
+            </div>
+            );
+        }
+      }
+      class EvenOrOdd extends React.Component {
+        constructor(props) {
+          super(props);
+          this.state = {
 
+          };
+        }
+        render() {
+          return (
+            <div>
+            
+            
+            </div>
+            );
+        }
+      }
+   
+      
 
       class App extends React.Component {
         render() {
           return (
-            <React.Fragment>
-         
-            </React.Fragment>
-          );
+            <div>
+                <h1>An interactive Web page</h1>
+            </div>
+            );
         }
       }
+
 
       //Render the application
       ReactDOM.render(<App />, document.getElementById("root"));
