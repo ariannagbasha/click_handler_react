@@ -36,67 +36,76 @@
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <!-- include our JS for the React Appliccation -->
     <script type="text/babel">
-    //0. Dicuss naming conventations
+      //0. Dicuss naming conventations
+      //1. Dicuss why I put everything where and what can I do better here ?
+      //2. Ran into an issue I forget to change class to className 😅
+      //3. Forgot this-functional components: Make sure to remind me
+      //4. Break down this.setState a little bit
+
       class ColorChanger extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
-
+            color: "gray",
           };
         }
+
+        changeToGray = () => {
+          this.setState((state, props) => ({
+            color: "gray"
+          }));
+        };
+
+        changeToBlue = () => {
+            this.setState((state, props) => ({
+                color: "blue"
+            }));
+        };
         render() {
+          const className = this.state.color;
           return (
             <div>
-            
+              <h2>1. Color changer</h2>
+              <button id="gray_button" onClick={this.changeToGray}>
+                Gray
+              </button> 
+              <button id="blue_button" onClick={this.changeToBlue}>
+                Blue
+              </button>
+              <div id="color_box" className={className}></div>
             </div>
-            );
+          );
         }
       }
       class Counter extends React.Component {
         constructor(props) {
           super(props);
-          this.state = {
-
-          };
+          this.state = {};
         }
         render() {
-          return (
-            <div>
-            
-            
-            </div>
-            );
+          return <div></div>;
         }
       }
       class EvenOrOdd extends React.Component {
         constructor(props) {
           super(props);
-          this.state = {
-
-          };
+          this.state = {};
         }
         render() {
-          return (
-            <div>
-            
-            
-            </div>
-            );
+          return <div></div>;
         }
       }
-   
-      
 
       class App extends React.Component {
         render() {
           return (
             <div>
-                <h1>An interactive Web page</h1>
+              <h1>An interactive Web page</h1>
+              <ColorChanger />
             </div>
-            );
+          );
         }
       }
-
 
       //Render the application
       ReactDOM.render(<App />, document.getElementById("root"));
