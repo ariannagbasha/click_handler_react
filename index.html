@@ -79,6 +79,21 @@
         }
       }
       class Counter extends React.Component {
+        render() {
+          return (
+            <div>
+              <h2>2. Counter</h2>
+              <button id="counter_button" onClick={this.props.addOneUp}>
+                This fabulous button
+              </button>
+              has been clicked <span id="countspan">{this.props.count}</span>{" "}
+              times.
+            </div>
+          );
+        }
+      }
+      // This is weird stuff-getting fun we will be lifting state up
+      class EvenOrOdd extends React.Component {
         constructor(props) {
           super(props);
           this.state = {
@@ -93,24 +108,9 @@
         render() {
           return (
             <div>
-              <h2>2. Counter</h2>
-              <button id="counter_button" onClick={this.addOneUp}>This fabulous button</button>
-              has been clicked <span id="countspan">
-                {this.state.count}
-              </span>{" "}
-              times.
+              <Counter count={this.state.count} addOneUp={this.addOneUp} />
             </div>
           );
-        }
-      }
-      // This is weird stuff-get fun we will be lifting state up
-      class EvenOrOdd extends React.Component {
-        constructor(props) {
-          super(props);
-          this.state = {};
-        }
-        render() {
-          return <div></div>;
         }
       }
 
@@ -120,7 +120,7 @@
             <div>
               <h1>An interactive Web page</h1>
               <ColorChanger />
-              <Counter />
+              <EvenOrOdd />
             </div>
           );
         }
