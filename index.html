@@ -52,14 +52,14 @@
 
         changeToGray = () => {
           this.setState((state, props) => ({
-            color: "gray"
+            color: "gray",
           }));
         };
 
         changeToBlue = () => {
-            this.setState((state, props) => ({
-                color: "blue"
-            }));
+          this.setState((state, props) => ({
+            color: "blue",
+          }));
         };
         render() {
           const className = this.state.color;
@@ -68,10 +68,11 @@
               <h2>1. Color changer</h2>
               <button id="gray_button" onClick={this.changeToGray}>
                 Gray
-              </button> 
+              </button>
               <button id="blue_button" onClick={this.changeToBlue}>
                 Blue
               </button>
+              {/* You will be helping me create a button that turns the box Pink*/}
               <div id="color_box" className={className}></div>
             </div>
           );
@@ -80,12 +81,29 @@
       class Counter extends React.Component {
         constructor(props) {
           super(props);
-          this.state = {};
+          this.state = {
+            count: 0,
+          };
         }
+        addOneUp = () => {
+          this.setState((state, props) => ({
+            count: state.count + 1,
+          }));
+        };
         render() {
-          return <div></div>;
+          return (
+            <div>
+              <h2>2. Counter</h2>
+              <button id="counter_button" onClick={this.addOneUp}>This fabulous button</button>
+              has been clicked <span id="countspan">
+                {this.state.count}
+              </span>{" "}
+              times.
+            </div>
+          );
         }
       }
+      // This is weird stuff-get fun we will be lifting state up
       class EvenOrOdd extends React.Component {
         constructor(props) {
           super(props);
@@ -102,6 +120,7 @@
             <div>
               <h1>An interactive Web page</h1>
               <ColorChanger />
+              <Counter />
             </div>
           );
         }
