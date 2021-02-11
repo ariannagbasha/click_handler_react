@@ -79,9 +79,21 @@
         }
       }
       class Counter extends React.Component {
+        // constructor(props) {
+        //   super(props);
+        //   this.state = {
+        //     count: 0,
+        //   };
+        // }
+        // addOneUp = () => {
+        //   this.setState((state, props) => ({
+        //     count: state.count + 1,
+        //   }));
+        // };
         render() {
           return (
             <div>
+              <hr />
               <h2>2. Counter</h2>
               <button id="counter_button" onClick={this.props.addOneUp}>
                 This fabulous button
@@ -105,10 +117,23 @@
             count: state.count + 1,
           }));
         };
+
+        handleAlerts = () => {
+          if (this.state.count % 2 === 0) {
+            alert("even");
+          } else {
+            alert("odd");
+          }
+        };
+
         render() {
           return (
             <div>
               <Counter count={this.state.count} addOneUp={this.addOneUp} />
+              <hr />
+              <h2>3. Even or Odd?</h2>
+              
+              <button id="even_or_odd_button" onClick={this.handleAlerts}>Is the count even or odd?</button>
             </div>
           );
         }
