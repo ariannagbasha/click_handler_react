@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Click Handler React</title>
+    <title>An interactive web page</title>
     <style>
       #color_box {
         width: 200px;
@@ -14,11 +14,14 @@
         background: gray;
       }
       .blue {
-        background: rgb(67, 111, 255);
+        background: blue ;
       }
       .pink {
         background: pink;
       }
+      /* .color-change-one {
+        margin-left: 100px;
+      } */
     </style>
   </head>
   <body>
@@ -42,6 +45,9 @@
       //3. Forgot this-functional components: Make sure to remind me
       //4. Break down this.setState a little bit
 
+
+      //1. State-Data-being of the application
+
       class ColorChanger extends React.Component {
         constructor(props) {
           super(props);
@@ -61,35 +67,37 @@
             color: "blue",
           }));
         };
+        changeToPink = () => {
+          this.setState((state, props) => ({
+            color: "pink"
+          }))
+        }
+        // randomColor = () => {
+        //   // 1. Make variable and set all to Math.random
+        //   // 2. If randToTwo is at 0 then changeToBlue
+        //   // 3. If randToTwo is at 1 then changeToGray
+        //   // 4. If randToTwo is at 2 then changeToPink
+        //   let randToTwo = Math.floor(Math.random() * Math.floor(3))
+        //   console.log(randToTwo)
+        // }
+
+
         render() {
-          const className = this.state.color;
+          // <button onClick={this.randomColor}> Random Number</button>
+          let className = this.state.color;
           return (
             <div>
               <h2>1. Color changer</h2>
-              <button id="gray_button" onClick={this.changeToGray}>
-                Gray
-              </button>
-              <button id="blue_button" onClick={this.changeToBlue}>
-                Blue
-              </button>
-              {/* You will be helping me create a button that turns the box Pink*/}
+              
+              <button id="gray_button" onClick={this.changeToGray}>Gray</button>
+              <button id="blue_button" onClick={this.changeToBlue}>Blue</button>
+              <button id="pink_button" onClick={this.changeToPink}>Pink</button>
               <div id="color_box" className={className}></div>
             </div>
           );
         }
       }
       class Counter extends React.Component {
-        // constructor(props) {
-        //   super(props);
-        //   this.state = {
-        //     count: 0,
-        //   };
-        // }
-        // addOneUp = () => {
-        //   this.setState((state, props) => ({
-        //     count: state.count + 1,
-        //   }));
-        // };
         render() {
           return (
             <div>
@@ -129,7 +137,7 @@
         render() {
           return (
             <div>
-              <Counter count={this.state.count} addOneUp={this.addOneUp} />
+              <Counter count={this.state.count} addOneUp={this.addOneUp}/>
               <hr />
               <h2>3. Even or Odd?</h2>
               
@@ -145,7 +153,11 @@
             <div>
               <h1>An interactive Web page</h1>
               <ColorChanger />
-              <EvenOrOdd />
+              <Counter />
+              <EvenOrOdd/>
+ 
+              
+
             </div>
           );
         }
